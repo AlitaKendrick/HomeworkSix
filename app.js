@@ -62,9 +62,48 @@ $("#addfood").on("click", function(){
 
 });
 
-$(document).on("click", ".food");
+// $(document).on("click", ".food", displayFoodGifs);
 
 renderButtons();
+
+$("button").on("click", function(){
+	var food = $(this).attr("data-name");
+	console.log("clicked");
+
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        food + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+	$.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        // After data comes back from the request
+        .done(function(response) {
+        	// console.log(queryURL);
+        	// console.log(response);
+
+        	var results = response.data;
+
+        		$("#foodsHere").empty();
+
+        	for(var i = 0; i < results.length; i++) {
+
+        		var foodDiv = $("<div>");
+
+        		var p = $("<p>").text("Rating: " + results[i].rating);
+
+        		var foodImage = $("<img>");
+
+        		foodImage.attr("src", results[i].images.fixed_height.url);
+
+        		foodDiv.append(p);
+            	foodDiv.append(foodImage);
+
+            	$("#foodsHere").prepend(foodDiv);
+        	}
+
+        });
+});
 
 
 });
