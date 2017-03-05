@@ -14,7 +14,7 @@ function renderButtons(){
 //creates button for each movie in the array
 	var a = $("<button>");
 //adds 'food' class to the button
-	a.addClass("foodie");
+	a.addClass("food");
 //adds data-attribute
 	a.attr("data-name", foods[i]);
 //provides button text
@@ -29,7 +29,7 @@ renderButtons();
 $("#addfood").on("click", function(event){
     event.preventDefault();
     // var food = $("<button>")
-    var food = $("#food-new").val();
+    var food = $("#food-input").val();
     foods.push(food);
     renderButtons();
 });
