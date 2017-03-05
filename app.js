@@ -82,12 +82,12 @@ $("button").on("click", function(){
 
             	$("#foodsHere").prepend(foodDiv);
         	}
-            $('img').on('click', toggleStill);
+            $('img').on('click', pausefunct);
         });
 });
 
 
-function toggleStill(){
+function pausefunct(){
 
     var state   =$(this).attr('data-state');
         if(state == 'still'){
