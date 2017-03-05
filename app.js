@@ -4,33 +4,7 @@ debugger;
 
 
 //original array of foods
-var foods = ["Pizza", "Apple", "Cake", "Cheese" ];
-
-
-// function displayFoodGifs(){
-// //function re-renders HTML to display appropriate content
-// 	var food = $(this).attr("data-name");
-// 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-//         food + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-//     $.ajax({
-//           url: queryURL,
-//           method: "GET"
-//         }).done(function(response) {
-
-//  //create div to hold food
-//     var foodDiv = $("<div class=foodD");
-
-// //store rating data
-// 	var rating = response.rating;
-
-// //create element to display
-// 	var pOne = $("<p>").text("Rating: " + rating);
-
-// //displaying the rating
-// 	foodDiv.append(pOne);
-// 	});
-// };
+var foods = ["Pizza","Cake", "Cheese", "Wine", "Pasta", "Tacos", "Pancakes", "Sandwich","Broccoli" ];
 
 
 function renderButtons(){
@@ -42,6 +16,7 @@ function renderButtons(){
 
 //creates button for each movie in the array
 	var a = $("<button>");
+    $("#foodButton").append(a);
 //adds 'food' class to the button
 	a.addClass("foodie");
 //adds data-attribute
@@ -49,7 +24,7 @@ function renderButtons(){
 //provides button text
 	a.text(foods[i]);
 //adds button to button list;
-	$("#foodButton").append(a);
+	
 	}
 };
 
@@ -62,16 +37,21 @@ $("#addfood").on("click", function(){
 
 });
 
-// $(document).on("click", ".food", displayFoodGifs);
-
 renderButtons();
 
+//function that links url to array to display gif
 $("button").on("click", function(){
 	var food = $(this).attr("data-name");
 	console.log("clicked");
 
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         food + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+        // $('queryURL').data("state", "stil");
+        // $('queryURL').data("still", "http://media2.giphy.com/");
+        // $('queryURL').data("animate", "http://media2.giphy.com/")
+        // $('queryURL').addClass('gif');
+        // console.log(queryURL.data-state);
 
 	$.ajax({
           url: queryURL,
@@ -90,7 +70,7 @@ $("button").on("click", function(){
 
         		var foodDiv = $("<div>");
 
-        		var p = $("<p>").text("Rating: " + results[i].rating);
+        		var p = $("<p class='ratingc'>").text("Rating: " + results[i].rating);
 
         		var foodImage = $("<img>");
 
@@ -98,10 +78,11 @@ $("button").on("click", function(){
 
         		foodDiv.append(p);
             	foodDiv.append(foodImage);
+            	foodDiv.addClass('foodDiv')
 
             	$("#foodsHere").prepend(foodDiv);
-        	}
 
+        	}
         });
 });
 

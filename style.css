@@ -1,0 +1,41 @@
+body {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/6b/e1/84/6be1847b56e3832a614699142d1e09d8.jpg");
+	font-family: 'Unica One', cursive;
+}
+
+button {
+	font-family: 'Unica One', cursive;
+	width: 10%;
+	position: center;
+	margin-left: 10px;
+	font-size: 15px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 70px;
+	font-family: 'Unica One', cursive;
+}
+
+#food-form {
+	font-size: 25px;
+	float: right;
+	display: inline-block;
+}
+
+#addfood {
+	font-family: 'Unica One', cursive;
+}
+
+.foodDiv {
+	margin: 10px;
+	display: inline;
+	overflow: hidden
+	font-size: 15px;
+	float:right;	
+}
+
+.ratingc {
+	font-size: 20px;
+	text-align: center; 
+}
