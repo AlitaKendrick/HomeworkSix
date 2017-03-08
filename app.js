@@ -35,18 +35,12 @@ $("#addfood").on("click", function(event){
 });
 
 //function that links url to array to display gif
-$("button").on("click", function(){
+$(document).on("click","button", function(){
 	var food = $(this).attr("data-name");
-	console.log("clicked");
+	// console.log("clicked");
 
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         food + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-        // $('queryURL').data("state", "stil");
-        // $('queryURL').data("still", "http://media2.giphy.com/");
-        // $('queryURL').data("animate", "http://media2.giphy.com/")
-        // $('queryURL').addClass('gif');
-        // console.log(queryURL.data-state);
 
 	$.ajax({
           url: queryURL,
